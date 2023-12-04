@@ -443,18 +443,25 @@ public class ManageProduct extends JInternalFrame {
 	    	      }
 	    	    });
 	    scrollPane.setViewportView(table);
+
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("Search By :");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(479, 27, 93, 29);
 		contentPane.add(lblNewLabel_1);
+
+		
 		
 		JComboBox cbSearch = new JComboBox();
 		cbSearch.setModel(new DefaultComboBoxModel(new String[] {"product_id", "product_name"}));
 		cbSearch.setBounds(572, 29, 119, 29);
 		contentPane.add(cbSearch);
+
+		
 		
 		txtSearch = new JTextField();
+		
 		txtSearch.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
