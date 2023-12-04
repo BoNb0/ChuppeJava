@@ -289,7 +289,7 @@ public class AddProduct extends JInternalFrame {
         lblAddProduct.setForeground(Color.BLACK);
         lblAddProduct.setBackground(Color.BLACK);
         lblAddProduct.setFont(new Font("Tahoma", Font.BOLD, 25));
-        lblAddProduct.setBounds(428, 11, 198, 47);
+        lblAddProduct.setBounds(520, 12, 198, 47);
         contentPane.add(lblAddProduct);
 
         JLabel lblNewLabel_1 = new JLabel("PRODUCT IMAGE");
@@ -303,7 +303,7 @@ public class AddProduct extends JInternalFrame {
             public void keyPressed(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (Character.isLetter(c)) {
-                    JOptionPane.showMessageDialog(null, "Number Only");
+                    JOptionPane.showMessageDialog(null, "Please Enter a Number Only");
                     txtqty.setText("");
                 }
             }

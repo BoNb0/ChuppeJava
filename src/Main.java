@@ -78,6 +78,7 @@ public class Main extends JFrame {
                 layeredMainPane.removeAll();
                 ViewAccount Mp = new ViewAccount();
                 layeredMainPane.add(Mp).setVisible(true);
+                
             }
         });
         viewAccount_btn.setBounds(0, 155, 200, 74);
