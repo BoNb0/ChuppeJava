@@ -623,8 +623,8 @@ public class ManageProduct extends JInternalFrame {
 		cbGetbyName.setBounds(25, 31, 282, 29);
 		contentPane.add(cbGetbyName);
 		
-		JLabel lblNewLabel_3 = new JLabel("Select Item by Product id :");
-		lblNewLabel_3.setBounds(25, 11, 282, 14);
+		JLabel lblNewLabel_3 = new JLabel("Select Item by Product id  :");
+		lblNewLabel_3.setBounds(25, 11, 320, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		btnEdit = new JButton("EDIT");
