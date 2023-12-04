@@ -243,10 +243,14 @@ public class ManageProduct extends JInternalFrame {
     	              fis.read(imageData);
     	              pst.setString(1, id);
     	              pst.setString(2, PN);
+    	              
     	              pst.setString(3, PD);
+    	              
     	              pst.setString(4, PP);
+    	              
     	              pst.setString(5, qty);
     	              pst.setBytes(6, imageData);
+    	              
 
     	              pst.executeUpdate();
     	              JOptionPane.showMessageDialog(null, "Update Product Success", "Info", JOptionPane.INFORMATION_MESSAGE);
