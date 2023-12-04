@@ -403,6 +403,7 @@ public class ManageProduct extends JInternalFrame {
 	    	            
 	    	            btnDelete.setEnabled(true);
 	    	            btnDelete.setBackground(Color.RED);
+	    	            btnDelete.setForeground(Color.BLACK);
 	    	    		btnDelete.addMouseListener(new MouseAdapter() {
 	    	    			@Override
 	    	    			public void mouseEntered(MouseEvent e) {
@@ -417,11 +418,10 @@ public class ManageProduct extends JInternalFrame {
 	    	    		});
 	    	            btnEdit.setEnabled(true);
 	    	            btnEdit.setBackground(Color.YELLOW);
+	    	            btnEdit.setForeground(Color.BLACK);
 	    	    		btnEdit.addMouseListener(new MouseAdapter() {
 	    	    			@Override
 	    	    			public void mouseEntered(MouseEvent e) {
-	    	    				btnEdit.setBackground(Color.BLACK);
-	    	    				btnEdit.setForeground(Color.WHITE);
 	    	    			}
 	    	    			@Override
 	    	    			public void mouseExited(MouseEvent e) {
@@ -623,7 +623,7 @@ public class ManageProduct extends JInternalFrame {
 		cbGetbyName.setBounds(25, 31, 282, 29);
 		contentPane.add(cbGetbyName);
 		
-		JLabel lblNewLabel_3 = new JLabel("Select Item by Product id :");
+		JLabel lblNewLabel_3 = new JLabel("Select Item by Product id  :");
 		lblNewLabel_3.setBounds(25, 11, 282, 14);
 		contentPane.add(lblNewLabel_3);
 		

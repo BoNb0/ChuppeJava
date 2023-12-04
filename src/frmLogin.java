@@ -98,6 +98,7 @@ public class frmLogin extends JFrame {
     public frmLogin() {
             setUndecorated(true);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            
             setBounds(100, 100, 540, 422);
             setLocationRelativeTo(null);
             contentPane = new JPanel();
