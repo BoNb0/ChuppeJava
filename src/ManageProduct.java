@@ -403,6 +403,7 @@ public class ManageProduct extends JInternalFrame {
 	    	            
 	    	            btnDelete.setEnabled(true);
 	    	            btnDelete.setBackground(Color.RED);
+	    	            btnDelete.setForeground(Color.BLACK);
 	    	    		btnDelete.addMouseListener(new MouseAdapter() {
 	    	    			@Override
 	    	    			public void mouseEntered(MouseEvent e) {
@@ -417,11 +418,10 @@ public class ManageProduct extends JInternalFrame {
 	    	    		});
 	    	            btnEdit.setEnabled(true);
 	    	            btnEdit.setBackground(Color.YELLOW);
+	    	            btnEdit.setForeground(Color.BLACK);
 	    	    		btnEdit.addMouseListener(new MouseAdapter() {
 	    	    			@Override
 	    	    			public void mouseEntered(MouseEvent e) {
-	    	    				btnEdit.setBackground(Color.BLACK);
-	    	    				btnEdit.setForeground(Color.WHITE);
 	    	    			}
 	    	    			@Override
 	    	    			public void mouseExited(MouseEvent e) {
