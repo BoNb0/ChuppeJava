@@ -69,13 +69,13 @@ public class frmLogin extends JFrame {
     public void dbOpen() {
 
         try {
-            String url = "jdbc:mysql://localhost:3306/choppee";
+            String url = "jdbc:mysql://localhost:3306/chupee";
             String user = "root";
             String password = "";
 
             cn = DriverManager.getConnection(url, user, password);
             st = cn.createStatement();
-            rs = st.executeQuery("select * from tbl_users");
+            rs = st.executeQuery("select * from users");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -156,25 +156,29 @@ public class frmLogin extends JFrame {
                             String uname = txtUsername.getText();
                             String pword = new String(txtpassword.getPassword());
 
-                            rs = st.executeQuery("SELECT count(*) as me FROM tbl_users WHERE username='" + uname + "'");
+                            rs = st.executeQuery("SELECT count(*) as me FROM users WHERE username='" + uname + "'");
                             rs.next();
                             if (Integer.parseInt(rs.getString("me")) == 0) {
                                 JOptionPane.showMessageDialog(null, "User Not Found !", "Warning", JOptionPane.WARNING_MESSAGE);
                                 txtUsername.requestFocusInWindow();
                             } else {
-                                rs = st.executeQuery("SELECT password FROM tbl_users WHERE username='" + uname + "'");
+                                rs = st.executeQuery("SELECT password FROM users WHERE username='" + uname + "'");
                                 rs.next();
                                 if (!rs.getString("password").equals(pword)) {
                                     JOptionPane.showMessageDialog(frame, "Incorrect Password Please Try Again !", "Warning", JOptionPane.WARNING_MESSAGE);
                                     txtpassword.requestFocusInWindow();
                                 } else {
                                     JOptionPane.showMessageDialog(frmLogin, "Login Success Welcome, " + uname + ". ", "Welcome", JOptionPane.INFORMATION_MESSAGE);
-                                    AddProduct m = new AddProduct();
+                                    Main m = new Main();
                                     m.setVisible(true);
                                     frmLogin.this.dispose();
                                     dbClose();
                                 }
-                            }
+                               // rs = st.executeQuery("SELECT isAdmin as me FROM users WHERE username='" + uname + "'");
+                               // rs.next();
+                           // } else if (rootPaneCheckingEnabled) {
+								
+							}
                         } catch (Exception i) {
                             JOptionPane.showMessageDialog(null, i.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
                         }

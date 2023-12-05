@@ -215,13 +215,19 @@ public class ViewAccount extends JInternalFrame {
 
         scrollPane.setViewportView(table);
 
-        JButton btnNewButton = new JButton("New button");
-        btnNewButton.setBounds(409, 557, 151, 44);
-        getContentPane().add(btnNewButton);
+        JButton delAcc_btn = new JButton("Delete Account");
+        delAcc_btn.setBounds(355, 557, 151, 44);
+        getContentPane().add(delAcc_btn);
 
-        JButton btnNewButton_1 = new JButton("New button");
-        btnNewButton_1.setBounds(633, 557, 151, 44);
-        getContentPane().add(btnNewButton_1);
+        JButton addAcc_btn = new JButton("Add Account");
+        addAcc_btn.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		AddAccount a = new AddAccount();
+        		a.setVisible(true);
+        	}
+        });
+        addAcc_btn.setBounds(580, 557, 151, 44);
+        getContentPane().add(addAcc_btn);
 
     }
 }
