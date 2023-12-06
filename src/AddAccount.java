@@ -134,7 +134,7 @@ public class AddAccount extends JFrame {
 							String Pwd = txtpwd.getText().trim();
 							//String admin = "1";
 							
-							 pst = con.prepareStatement("INSERT INTO `users`(`first_name`, `last_name`, `username`, `password`, `isAdmin`) VALUES(?,?,?,?,1)");
+							 pst = con.prepareStatement("INSERT INTO `users`(`first_name`, `last_name`, `username`, `password`, `isAdmin`) VALUES(?,?,?,md5(?),1)");
 	                            pst.setString(1, Ln);
 	                            pst.setString(2, Fn);
 	                            pst.setString(3, Un);
