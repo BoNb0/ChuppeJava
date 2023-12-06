@@ -168,11 +168,19 @@ public class frmLogin extends JFrame {
                                     JOptionPane.showMessageDialog(frame, "Incorrect Password Please Try Again !", "Warning", JOptionPane.WARNING_MESSAGE);
                                     txtpassword.requestFocusInWindow();
                                 } else {
-                                    JOptionPane.showMessageDialog(frmLogin, "Login Success Welcome, " + uname + ". ", "Welcome", JOptionPane.INFORMATION_MESSAGE);
-                                    Main m = new Main();
-                                    m.setVisible(true);
-                                    frmLogin.this.dispose();
-                                    dbClose();
+                                	rs = st.executeQuery("SELECT password FROM users WHERE username='" + uname + "' and isAdmin = 1");
+                                    
+                                	if (!rs.next()) {
+                                		JOptionPane.showMessageDialog(null, "Must be a Admin to Login here", "Error", JOptionPane.INFORMATION_MESSAGE);
+                                        txtUsername.requestFocusInWindow();
+									} else {
+										 JOptionPane.showMessageDialog(frmLogin, "Login Success Welcome, " + uname + ". ", "Welcome", JOptionPane.INFORMATION_MESSAGE);
+                                         Main m = new Main();
+                                         m.setVisible(true);
+                                         frmLogin.this.dispose();
+                                         dbClose();
+									}
+                                   
                                 }
                                // rs = st.executeQuery("SELECT isAdmin as me FROM users WHERE username='" + uname + "'");
                                // rs.next();

@@ -77,7 +77,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `username`, `password`, `isAdmin`) VALUES
-(17, 'Cyrel', 'Villanueva', 'cy30', '$2b$10$2Uiy/NZFKYlGSkDh75wnlup9os0TO65pn1URUdFmJvdNthLU93YgW', 0);
+(17, 'Cyrel', 'Villanueva', 'cy30', '$2b$10$2Uiy/NZFKYlGSkDh75wnlup9os0TO65pn1URUdFmJvdNthLU93YgW', 0),
+(18, 'Avena', 'Cydhen', 'Den' '123', '1'),
+(19, 'Ronnie','Tabiano','tab', '123', '0');
 
 --
 -- Indexes for dumped tables
