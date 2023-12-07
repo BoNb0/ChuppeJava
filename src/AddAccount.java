@@ -63,7 +63,10 @@ public class AddAccount extends JFrame {
 	 */
 	public AddAccount() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		
 		setBounds(100, 100, 245, 487);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -147,7 +150,10 @@ public class AddAccount extends JFrame {
 	                                txtLn.setText("");
 	                                txtFn.setText("");
 	                                txtUn.setText("");
-	                                txtpwd.setText("");	                                
+	                                txtpwd.setText("");	   
+                               
+									ViewAccount.LoadTable();
+								
 	                            }
 							
 					}
