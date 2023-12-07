@@ -118,7 +118,7 @@ public class ViewAccount extends JInternalFrame {
      * Create the frame.
      */
     public ViewAccount() {
-
+    	super("Manage Account");
         setBounds(100, 100, 1150, 655);
         getContentPane().setLayout(null);
 

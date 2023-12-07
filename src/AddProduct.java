@@ -91,6 +91,7 @@ public class AddProduct extends JInternalFrame {
     }
 
     public < InputStream > AddProduct() {
+    	super("Add Product");
         //setUndecorated(true);
         Connect();
         //setType(Type.POPUP);
@@ -255,6 +256,7 @@ public class AddProduct extends JInternalFrame {
         contentPane.add(lbldesc);
 
         txtPdesc = new JTextArea();
+        txtPdesc.setWrapStyleWord(true);
         txtPdesc.setBorder(new LineBorder(new Color(0, 0, 0), 2));
         txtPdesc.setLineWrap(true);
         txtPdesc.setFont(new Font("Arial", Font.PLAIN, 13));
