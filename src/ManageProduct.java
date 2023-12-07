@@ -165,6 +165,7 @@ public class ManageProduct extends JInternalFrame {
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public ManageProduct() {
+		super("Manage Product");
 		//setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1068, 676);
