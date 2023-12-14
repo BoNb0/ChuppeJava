@@ -273,7 +273,7 @@ public class ManageProduct extends JInternalFrame {
 							String PD = txtPdesc.getText().trim();
 							String PP = txtPprice.getText().trim();
 							String qty = txtqty.getText().trim();
-				            String updateQuery = "UPDATE products SET product_id = ?, product_name = ?, product_description = ?, Price = ?, quantity = ?, image = ? WHERE product_id = '"+id+"' ";
+				            String updateQuery = "UPDATE products SET product_id = ?, product_name = ?, product_description = ?, Price = ?, quantity + ?, image = ? WHERE product_id = '"+id+"' ";
 				            PreparedStatement pst = cn.prepareStatement(updateQuery);
 
 				            File imageFile = new File(path);
