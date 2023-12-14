@@ -98,7 +98,9 @@ public class Main extends JFrame {
         JButton sales_btn = new JButton("Sales");
         sales_btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                switchScreen(salesPanel);
+            	 layeredMainPane.removeAll();
+                 Sales sales = new Sales();
+                 layeredMainPane.add(sales).setVisible(true);
             }
         });
         sales_btn.setBounds(0, 622, 200, 74);
