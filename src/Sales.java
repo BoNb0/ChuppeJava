@@ -47,6 +47,88 @@ public class Sales extends JInternalFrame {
 	private JTable table;
 	private JTable table_1;
 	private JTextField txtSearch;
+	
+	public void dbOpen1() {
+		try {	
+			String url="jdbc:mysql://localhost:3306/chupee";
+			String user="root";
+			String password="";
+				
+			cn=DriverManager.getConnection(url,user,password);
+			st=cn.createStatement();
+			rs = st.executeQuery("select * from sold_products");
+			
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	public void dbOpen() {
+		try {	
+			String url="jdbc:mysql://localhost:3306/chupee";
+			String user="root";
+			String password="";
+				
+			cn=DriverManager.getConnection(url,user,password);
+			st=cn.createStatement();
+			rs = st.executeQuery("select * from orders");
+			
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	public void dbClose() {
+		try {
+			rs.close();
+			st.close();
+			cn.close();
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	public void LoadTable() {
+		try {
+			dbOpen();
+			table.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	public void LoadTable1() {
+		try {
+			dbOpen();
+			table_1.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	public void Reset() {
+	  
+	}
+
+	public void fillcb() {
+		try {
+			dbOpen();
+			String qry = "SELECT * FROM products";
+			PreparedStatement pst = cn.prepareStatement(qry);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				//cbGetbyName.addItem(rs.getString("product_id"));
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		}
+	
+	
 	/**
 	 * Create the frame.
 	 */
@@ -121,85 +203,4 @@ public class Sales extends JInternalFrame {
 		LoadTable1();
 	}
 
-
-
-public void dbOpen1() {
-	try {	
-		String url="jdbc:mysql://localhost:3306/chupee";
-		String user="root";
-		String password="";
-			
-		cn=DriverManager.getConnection(url,user,password);
-		st=cn.createStatement();
-		rs = st.executeQuery("select * from sold_products");
-		
-	}
-	catch (Exception e) {
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	}
-}
-
-public void dbOpen() {
-	try {	
-		String url="jdbc:mysql://localhost:3306/chupee";
-		String user="root";
-		String password="";
-			
-		cn=DriverManager.getConnection(url,user,password);
-		st=cn.createStatement();
-		rs = st.executeQuery("select * from orders");
-		
-	}
-	catch (Exception e) {
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	}
-}
-
-public void dbClose() {
-	try {
-		rs.close();
-		st.close();
-		cn.close();
-	}
-	catch (Exception e) {
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	}
-}
-
-public void LoadTable() {
-	try {
-		dbOpen();
-		table.setModel(DbUtils.resultSetToTableModel(rs));
-	} catch (Exception e) {
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	}
-}
-
-public void LoadTable1() {
-	try {
-		dbOpen();
-		table_1.setModel(DbUtils.resultSetToTableModel(rs));
-	} catch (Exception e) {
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	}
-}
-
-public void Reset() {
-  
-}
-
-public void fillcb() {
-	try {
-		dbOpen();
-		String qry = "SELECT * FROM products";
-		PreparedStatement pst = cn.prepareStatement(qry);
-		ResultSet rs = pst.executeQuery();
-		
-		while(rs.next()) {
-			//cbGetbyName.addItem(rs.getString("product_id"));
-		}
-	} catch (Exception e) {
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	}
-	}
 }
