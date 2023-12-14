@@ -56,7 +56,7 @@ public class Sales extends JInternalFrame {
 				
 			cn=DriverManager.getConnection(url,user,password);
 			st=cn.createStatement();
-			rs = st.executeQuery("select * from sold_products");
+			rs = st.executeQuery("SELECT sold_products.id as 'ID', sold_products.product_id as 'Product ID', sold_products.order_id as 'Order ID', products.product_name 'Product Name', sold_products.quantity as 'Quantity' from sold_products INNER join products on sold_products.product_id=products.product_id");
 			
 		}
 		catch (Exception e) {
@@ -72,7 +72,7 @@ public class Sales extends JInternalFrame {
 				
 			cn=DriverManager.getConnection(url,user,password);
 			st=cn.createStatement();
-			rs = st.executeQuery("select * from orders");
+			rs = st.executeQuery("select order_id as 'Order ID', customer_name as 'Customer Name', total as 'Total Price', date as 'Date' from orders");
 			
 		}
 		catch (Exception e) {
@@ -102,7 +102,7 @@ public class Sales extends JInternalFrame {
 
 	public void LoadTable1() {
 		try {
-			dbOpen();
+			dbOpen1();
 			table_1.setModel(DbUtils.resultSetToTableModel(rs));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -143,7 +143,7 @@ public class Sales extends JInternalFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 45, 680, 447);
+		scrollPane.setBounds(10, 45, 404, 447);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -154,7 +154,7 @@ public class Sales extends JInternalFrame {
 					dbOpen1();
 					 int row = table.getSelectedRow();
 	    	          String orderId = (table.getModel().getValueAt(row, 0)).toString();
-					String qry = "select * from sold_products where order_id = '"+orderId+"' ";
+					String qry = "SELECT sold_products.id as 'ID', sold_products.product_id as 'Product ID', sold_products.order_id as 'Order ID', products.product_name 'Product Name', sold_products.quantity as 'Quantity' from sold_products INNER join products on sold_products.product_id=products.product_id where order_id = '"+orderId+"' ";
 					st = cn.prepareStatement(qry);
 	    	          rs = st.executeQuery(qry);
 	    	          table_1.setModel(DbUtils.resultSetToTableModel(rs));
@@ -170,7 +170,7 @@ public class Sales extends JInternalFrame {
 		LoadTable();
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(700, 45, 424, 447);
+		scrollPane_1.setBounds(424, 45, 700, 447);
 		contentPane.add(scrollPane_1);
 		
 		table_1 = new JTable();
@@ -182,7 +182,7 @@ public class Sales extends JInternalFrame {
 			public void keyReleased(KeyEvent e) {
 				 try {
 					dbOpen();
-					String qry = "SELECT * FROM orders WHERE customer_name LIKE ? or order_id like ?";
+					String qry = "select order_id as 'Order ID', customer_name as 'Customer Name', total as 'Total Price', date as 'Date' from orders WHERE customer_name LIKE ? or order_id like ?";
 					PreparedStatement pst = cn.prepareStatement(qry);
 					pst.setString(1, "%" +txtSearch.getText()+ "%");
 					pst.setString(2, "%" +txtSearch.getText()+ "%");
@@ -204,4 +204,3 @@ public class Sales extends JInternalFrame {
 	}
 
 }
-

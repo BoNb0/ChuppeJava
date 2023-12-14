@@ -139,9 +139,7 @@ public class Main extends JFrame {
         JButton viewProducts_btn = new JButton("View Products");
         viewProducts_btn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		layeredMainPane.removeAll();
-                ProductViewer Mp = new ProductViewer();
-                layeredMainPane.add(Mp).setVisible(true);
+        		switchScreen(prodPanel);
         	}
         });
         viewProducts_btn.setBounds(0, 410, 200, 74);
