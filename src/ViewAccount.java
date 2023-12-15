@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 import net.proteanit.sql.DbUtils;
 import javax.swing.table.DefaultTableModel;
@@ -119,6 +120,9 @@ public class ViewAccount extends JInternalFrame {
      */
     public ViewAccount() {
     	super("Manage Account");
+    	this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+    	BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+    	bui.setNorthPane(null);
         setBounds(100, 100, 1150, 655);
         getContentPane().setLayout(null);
 

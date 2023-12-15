@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -93,6 +94,11 @@ public class AddProduct extends JInternalFrame {
     public < InputStream > AddProduct() {
     	super("Add Product");
         //setUndecorated(true);
+    	
+    	this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+    	BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+    	bui.setNorthPane(null);
+    	
         Connect();
         //setType(Type.POPUP);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

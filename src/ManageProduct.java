@@ -40,6 +40,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 import com.mysql.cj.jdbc.Blob;
@@ -166,6 +167,9 @@ public class ManageProduct extends JInternalFrame {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public ManageProduct() {
 		super("Manage Product");
+		this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+    	BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+    	bui.setNorthPane(null);
 		//setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1068, 676);

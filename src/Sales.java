@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 import net.proteanit.sql.DbUtils;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -134,6 +136,9 @@ public class Sales extends JInternalFrame {
 	 */
 	public Sales() {
 		super("Sales");
+		this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+    	BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+    	bui.setNorthPane(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setBounds(100, 100, 1150, 655);
 		contentPane = new JPanel();

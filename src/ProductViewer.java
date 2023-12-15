@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.*;
@@ -17,7 +18,9 @@ public class ProductViewer extends JInternalFrame {
 
     public ProductViewer() {
         super("Product Viewer");
-
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+    	BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+    	bui.setNorthPane(null);
         // Initialize components
         productIdField = new JTextField();
         productNameField = new JTextField();
