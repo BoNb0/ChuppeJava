@@ -155,19 +155,22 @@ public class frmLogin extends JFrame {
                         try {
                             String uname = txtUsername.getText();
                             String pword = new String(txtpassword.getPassword());
+                            
 
                             rs = st.executeQuery("SELECT count(*) as me FROM users WHERE username='" + uname + "'");
                             rs.next();
+                            
                             if (Integer.parseInt(rs.getString("me")) == 0) {
                                 JOptionPane.showMessageDialog(null, "User Not Found !", "Warning", JOptionPane.WARNING_MESSAGE);
                                 txtUsername.requestFocusInWindow();
+                                
                             } else {
-                                rs = st.executeQuery("SELECT password FROM users WHERE username='" + uname + "'");
-                                rs.next();
-                                if (!rs.getString("password").equals(pword)) {
-                                    JOptionPane.showMessageDialog(frame, "Incorrect Password Please Try Again !", "Warning", JOptionPane.WARNING_MESSAGE);
-                                    txtpassword.requestFocusInWindow();
-                                } else {
+                            	 rs = st.executeQuery("SELECT password  FROM users WHERE username='" + uname + "'");
+                                 rs.next();                            
+                                 if (!rs.getString("password").equals(pword)) {                                
+                                 	JOptionPane.showMessageDialog(null, "Incorrect Password Please Try Again !", "Warning", JOptionPane.WARNING_MESSAGE);
+                                 	txtpassword.requestFocusInWindow();
+                                 }else {
                                 	rs = st.executeQuery("SELECT password FROM users WHERE username='" + uname + "' and isAdmin = 1");
                                     
                                 	if (!rs.next()) {
